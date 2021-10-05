@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Button, Form } from "react-bootstrap";
 
 const AddComment = ({ asin }) => {
   const [comment, setComment] = useState({
@@ -16,7 +15,7 @@ const AddComment = ({ asin }) => {
     }));
   }, [asin]);
 
-  sendComment = async (e) => {
+  const sendComment = async (e) => {
     e.preventDefault();
     try {
       let response = await fetch(
@@ -27,12 +26,18 @@ const AddComment = ({ asin }) => {
           headers: {
             "Content-type": "application/json",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4YThiODE2ZWY2MDAwMTVjZWQwNTUiLCJpYXQiOjE2MzIzMTU3ODksImV4cCI6MTYzMzUyNTM4OX0.5DMyLDm1BhaVjrBNllHevG_JWKkIIT8o2np1ZpuHMFw",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI3OWY5NTgxNmI1YjAwMTU5NDA3NDAiLCJpYXQiOjE2MjI2NDY2NzcsImV4cCI6MTYyMzg1NjI3N30.y-rBwB5WAQOWBvWrLlAgTQUrbGulxd2M6cWH3VLyGLw",
           },
         }
       );
       if (response.ok) {
+        // the comment has been sent succesfully!!
         alert("Comment was sent!");
+        setComment({
+          comment: "",
+          rate: 1,
+          elementId: null,
+        });
       } else {
         console.log("error");
         alert("something went wrong");
@@ -86,4 +91,4 @@ const AddComment = ({ asin }) => {
   );
 };
 
-export default AdComment;
+export default AddComment;
