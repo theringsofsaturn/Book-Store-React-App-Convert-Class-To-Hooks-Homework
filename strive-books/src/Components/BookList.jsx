@@ -48,12 +48,11 @@ const BookList = ({ books }) => {
               </NavDropdown>
             </Nav>
             <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="mr-2"
-                aria-label="Search"
-                onChange={(e) => this.setState({ searchQuery: e.target.value })}
+              <Form.Control
+                type="text"
+                placeholder="Search here"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
               <Button variant="outline-light">Search</Button>
             </Form>
