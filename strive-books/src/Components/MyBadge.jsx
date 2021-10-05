@@ -1,5 +1,5 @@
-import  Badge  from "react-bootstrap/Badge"
-const MyBadge = (props) => 
-  (<Badge bg={props.color}>{props.text}</Badge>)
+import Badge from "react-bootstrap/Badge";
+
+const MyBadge = (props) => <Badge variant={props.color}>{props.text}</Badge>;
 
 export default MyBadge;
