@@ -60,13 +60,15 @@ const BookList = ({ books }) => {
         </Navbar>
       </div>
       <Row>
-        {this.props.books
-          .filter((element) =>
-            element.title.toLowerCase().includes(this.state.searchQuery)
-          )
-          .map((element) => (
-            <Col xs={4}>
-              <SingleBook book={element} />
+        {books
+          .filter((b) => b.title.toLowerCase().includes(searchQuery))
+          .map((b) => (
+            <Col xs={3} key={b.asin}>
+              <SingleBook
+                book={b}
+                selectedBook={selectedBook}
+                changeSelectedBook={(asin) => setSelectedBook(asin)}
+              />
             </Col>
           ))}
       </Row>
