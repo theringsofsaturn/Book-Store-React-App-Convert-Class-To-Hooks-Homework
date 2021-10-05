@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
-import FormControl from "react-bootstrap/FormControl";
+// import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
 
 const BookList = ({ books }) => {
@@ -72,6 +72,9 @@ const BookList = ({ books }) => {
             </Col>
           ))}
       </Row>
+      <Col md={4}>
+        <CommentArea asin={selectedBook} />
+      </Col>
     </Container>
   );
 };

@@ -32,7 +32,6 @@ const AddComment = ({ asin }) => {
         }
       );
       if (response.ok) {
-        // the comment has been sent succesfully!!
         alert("Comment was sent!");
         setComment({
           comment: "",
